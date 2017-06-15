@@ -1,0 +1,11 @@
+{
+    "require": {
+        "doctrine/orm": "*"
+    },
+    "autoload"    : {
+        "psr-4" : {
+            "Fun\\" : "src/Fun/",
+            "Config\\" : "app/Config/"
+        }
+    }
+}
