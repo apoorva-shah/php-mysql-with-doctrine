@@ -11,7 +11,7 @@ use Fun\Controller\HomepageController;
 
 echo Parameters::SITE_PATH;
 
-$paths = array("/path/to/entity-files");
+$paths = array("github/php-mysql-with-doctrine/src/Fun/Entity/");
 $isDevMode = false;
 
 // the connection configuration
@@ -25,6 +25,16 @@ $dbParams = array(
 $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
 $entityManager = EntityManager::create($dbParams, $config);
 
+
+
+$config = new \Doctrine\ORM\Configuration();
+$driverImpl = $config->newDefaultAnnotationDriver('github/php-mysql-with-doctrine/src/Fun/Entity/');
+
+$tool = new \Doctrine\ORM\Tools\SchemaTool($entityManager);
+$classes = array(
+    $entityManager->getClassMetadata('Fun\Entity\Message'),
+);
+$tool->createSchema($classes);
 
 /*$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 

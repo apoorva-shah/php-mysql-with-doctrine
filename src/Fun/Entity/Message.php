@@ -2,29 +2,19 @@
 
 namespace Fun\Entity;
 
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="message")
- */
+/** @Entity */
 class Message
 {
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @Id
+     * @Column(type="integer")
+     * @GeneratedValue(strategy="AUTO")
      */
-    protected $id;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
+    private $id;
+    /** @Column(length=140) */
     private $text;
-
-    /**
-     * @ORM\Column(type="datetime", name="posted_at")
-     */
+    /** @Column(type="datetime", name="posted_at") */
     private $postedAt;
 }
