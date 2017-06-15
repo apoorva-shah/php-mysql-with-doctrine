@@ -12,7 +12,7 @@ use Fun\Controller\HomepageController;
 echo Parameters::SITE_PATH;
 
 $paths = array("/path/to/entity-files");
-$isDevMode = true;
+$isDevMode = false;
 
 // the connection configuration
 $dbParams = array(
@@ -26,7 +26,7 @@ $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
 $entityManager = EntityManager::create($dbParams, $config);
 
 
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+/*$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 echo "<br/>";
 echo $uri;
@@ -50,12 +50,12 @@ if ($routes['home'] === $uri) {
     $category->addAction();
 }else {
     echo '<h1>Page not found</h1>';
-}
+}*/
 
 /*$dql = "SELECT email FROM fos_user";
 $query = $entityManager->createQuery($dql);
 var_dump($query->getSQL());*/
 
-$qb = $entityManager->createQueryBuilder();
+/*$qb = $entityManager->createQueryBuilder();
 $qb->select('u')->from('fos_user', 'u');
-var_dump($qb->getDQL());
+var_dump($qb->getDQL());*/

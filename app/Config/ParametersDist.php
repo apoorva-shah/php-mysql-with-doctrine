@@ -2,7 +2,7 @@
 
 namespace Config;
 
-final class Parameters
+final class ParametersDist
 {
     const SITE_PATH = '/demo/fun';
     const DB_NAME = '';
