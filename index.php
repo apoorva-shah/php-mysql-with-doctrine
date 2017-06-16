@@ -10,11 +10,13 @@ use Fun\Controller\HomepageController;
 
 include 'bootstrap.php';
 
-$config = new \Doctrine\ORM\Configuration();
-$driverImpl = $config->newDefaultAnnotationDriver('github/php-mysql-with-doctrine/src/Fun/Entity/');
+//$config = new \Doctrine\ORM\Configuration();
+//$driverImpl = $config->newDefaultAnnotationDriver('github/php-mysql-with-doctrine/src/Fun/Entity/');
 
 $tool = new \Doctrine\ORM\Tools\SchemaTool($entityManager);
+
 $classes = array(
+    $entityManager->getClassMetadata('Fun\Entity\Customer'),
     $entityManager->getClassMetadata('Fun\Entity\Message'),
 );
 $tool->createSchema($classes);
